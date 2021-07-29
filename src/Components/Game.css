@@ -1,0 +1,21 @@
+button {
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+}
+
+.row {
+    display: flex;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.white {
+    background-color: white;
+}

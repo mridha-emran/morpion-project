@@ -264,7 +264,6 @@ export default class Game extends React.Component {
                     {this.renderShowPlayerTurn()}
                     {this.renderVictoryText()}
                 </div>
-                
             </div>
         )
     }

@@ -7,9 +7,11 @@ export default class Game extends React.Component {
         this.state = {
             player: "red",
             squares: ["white", "white", "white", "white", "white", "white", "white", "white", "white"],
+            turn: 0
         }
     }
     changeSquareColor =(id)=> {
+        console.log(this.state.turn)
         let tempSquare = [...this.state.squares]
         if (this.state.player === "red") {
             tempSquare.splice(id, 1, "red")
@@ -18,6 +20,7 @@ export default class Game extends React.Component {
                     ...prevState,
                     player: "blue",
                     squares: [...tempSquare],
+                    turn: this.state.turn + 1
                 }
             }, ()=>this.victoryConditions())
         }
@@ -28,6 +31,7 @@ export default class Game extends React.Component {
                     ...prevState,
                     player: "red",
                     squares: [...tempSquare],
+                    turn: this.state.turn + 1
                 }
             }, ()=>this.victoryConditions())
         }
@@ -38,6 +42,7 @@ export default class Game extends React.Component {
                 ...prevState,
                 player: "red",
                 squares: ["white", "white", "white", "white", "white", "white", "white", "white", "white"],
+                turn: 0
             }
         })
     }
@@ -96,6 +101,8 @@ export default class Game extends React.Component {
             this.gameOver()
         } else
         if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red")  {
+            this.gameOver()
+        } else if (this.state.turn === 9) {
             this.gameOver()
         }
     }
@@ -224,6 +231,12 @@ export default class Game extends React.Component {
             return (
                 <div>
                     <p>Red wins</p>
+                </div>
+            )
+        } else if (this.state.turn === 9) {
+            return (
+                <div>
+                    <p>Draw</p>
                 </div>
             )
         }

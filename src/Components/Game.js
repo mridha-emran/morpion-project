@@ -7,7 +7,9 @@ export default class Game extends React.Component {
         this.state = {
             player: "red",
             squares: ["white", "white", "white", "white", "white", "white", "white", "white", "white"],
-            turn: 0
+            turn: 0,
+            blueScore: 0,
+            redScore: 0
         }
     }
     changeSquareColor =(id)=> {
@@ -46,64 +48,99 @@ export default class Game extends React.Component {
             }
         })
     }
-    gameOver =()=> {
+    gameOver =(winner)=> {
+        if (winner === "blue") {
         this.setState(prevState => {
             return {
                 ...prevState,
                 player: "gameOver",
+                blueScore: this.state.blueScore + 1
+            }
+        })
+    } else if (winner === "red") {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                player: "gameOver",
+                redScore: this.state.redScore + 1
+            }
+        })
+    } else {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                player: "gameOver"
             }
         })
     }
+    }
     victoryConditions =()=> {
         if (this.state.squares[0] === "blue" && this.state.squares[1] === "blue" && this.state.squares[2] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[3] === "blue" && this.state.squares[4] === "blue" && this.state.squares[5] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[6] === "blue" && this.state.squares[7] === "blue" && this.state.squares[8] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[0] === "blue" && this.state.squares[3] === "blue" && this.state.squares[6] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[1] === "blue" && this.state.squares[4] === "blue" && this.state.squares[7] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[2] === "blue" && this.state.squares[5] === "blue" && this.state.squares[8] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[0] === "blue" && this.state.squares[4] === "blue" && this.state.squares[8] === "blue") {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[2] === "blue" && this.state.squares[4] === "blue" && this.state.squares[6] === "blue")  {
-            this.gameOver()
+            let winner = "blue"
+            this.gameOver(winner)
         } else
         if (this.state.squares[0] === "red" && this.state.squares[1] === "red" && this.state.squares[2] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[3] === "red" && this.state.squares[4] === "red" && this.state.squares[5] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[6] === "red" && this.state.squares[7] === "red" && this.state.squares[8] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[0] === "red" && this.state.squares[3] === "red" && this.state.squares[6] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if(this.state.squares[1] === "red" && this.state.squares[4] === "red" && this.state.squares[7] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[2] === "red" && this.state.squares[5] === "red" && this.state.squares[8] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[0] === "red" && this.state.squares[4] === "red" && this.state.squares[8] === "red") {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else
         if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red")  {
-            this.gameOver()
+            let winner = "red"
+            this.gameOver(winner)
         } else if (this.state.turn === 9) {
-            this.gameOver()
+            let winner = "draw"
+            this.gameOver(winner)
         }
     }
     renderShowPlayerTurn() {
@@ -266,6 +303,7 @@ export default class Game extends React.Component {
                 <button className="btn"  onClick={this.reset}>New Game</button>
                 {this.renderShowPlayerTurn()}
                 {this.renderVictoryText()}
+                <p>Le score est de : Blue {this.state.blueScore} - Red {this.state.redScore}</p>
 
             </div>
         )

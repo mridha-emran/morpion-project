@@ -168,13 +168,13 @@ export default class Game extends React.Component {
         if (this.state.player === "red") {
             return (
                 <div>
-                    <p>It's Red's turn</p>
+                    <p className="result">It's Red's turn</p>
                 </div>
             )
         } else if (this.state.player === "blue") {
             return (
                 <div>
-                    <p>It's Blue's turn</p>
+                    <p className="result">It's Blue's turn</p>
                 </div>
             )
         }
@@ -183,7 +183,7 @@ export default class Game extends React.Component {
         if (this.state.squares[0] === "blue" && this.state.squares[1] === "blue" && this.state.squares[2] === "blue") {
             return (
                 <div>
-                    <p>Blue wins</p>
+                    <p className="result">Blue wins</p>
                 </div>
             )
         } else
@@ -302,7 +302,7 @@ export default class Game extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="grid">
                 <div>
                     <div className="row">
                         <button disabled={this.state.squares[0] === "white" ? false : true} className={this.state.squares[0]} onClick={() => this.changeSquareColor(0)}></button>
@@ -319,13 +319,15 @@ export default class Game extends React.Component {
                         <button disabled={this.state.squares[7] === "white" ? false : true} className={this.state.squares[7]} onClick={() => this.changeSquareColor(7)}></button>
                         <button disabled={this.state.squares[8] === "white" ? false : true} className={this.state.squares[8]} onClick={() => this.changeSquareColor(8)}></button>
                     </div>
+                    <button className="btn"  onClick={this.reset}>New Game</button>
+                    {this.renderShowPlayerTurn()}
+                    {this.renderVictoryText()}
                 </div>
 
                 <button className="btn" onClick={this.reset}>New Game</button>
                 {this.renderShowPlayerTurn()}
                 {this.renderVictoryText()}
                 <p>Le score est de : Blue {this.state.blueScore} - Red {this.state.redScore}</p>
-
             </div>
         )
     }

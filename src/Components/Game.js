@@ -322,12 +322,8 @@ export default class Game extends React.Component {
                     <button className="btn"  onClick={this.reset}>New Game</button>
                     {this.renderShowPlayerTurn()}
                     {this.renderVictoryText()}
+                    <p>Le score est de : Blue {this.state.blueScore} - Red {this.state.redScore}</p>
                 </div>
-
-                <button className="btn" onClick={this.reset}>New Game</button>
-                {this.renderShowPlayerTurn()}
-                {this.renderVictoryText()}
-                <p>Le score est de : Blue {this.state.blueScore} - Red {this.state.redScore}</p>
             </div>
         )
     }

@@ -190,111 +190,111 @@ export default class Game extends React.Component {
             if (this.state.squares[3] === "blue" && this.state.squares[4] === "blue" && this.state.squares[5] === "blue") {
                 return (
                     <div>
-                        <p>Blue wins</p>
+                        <p className="result">Blue wins</p>
                     </div>
                 )
             } else
                 if (this.state.squares[6] === "blue" && this.state.squares[7] === "blue" && this.state.squares[8] === "blue") {
                     return (
                         <div>
-                            <p>Blue wins</p>
+                            <p className="result">Blue wins</p>
                         </div>
                     )
                 } else
                     if (this.state.squares[0] === "blue" && this.state.squares[3] === "blue" && this.state.squares[6] === "blue") {
                         return (
                             <div>
-                                <p>Blue wins</p>
+                                <p className="result">Blue wins</p>
                             </div>
                         )
                     } else
                         if (this.state.squares[1] === "blue" && this.state.squares[4] === "blue" && this.state.squares[7] === "blue") {
                             return (
                                 <div>
-                                    <p>Blue wins</p>
+                                    <p className="result">Blue wins</p>
                                 </div>
                             )
                         } else
                             if (this.state.squares[2] === "blue" && this.state.squares[5] === "blue" && this.state.squares[8] === "blue") {
                                 return (
                                     <div>
-                                        <p>Blue wins</p>
+                                        <p className="result">Blue wins</p>
                                     </div>
                                 )
                             } else
                                 if (this.state.squares[0] === "blue" && this.state.squares[4] === "blue" && this.state.squares[8] === "blue") {
                                     return (
                                         <div>
-                                            <p>Blue wins</p>
+                                            <p className="result">Blue wins</p>
                                         </div>
                                     )
                                 } else
                                     if (this.state.squares[2] === "blue" && this.state.squares[4] === "blue" && this.state.squares[6] === "blue") {
                                         return (
                                             <div>
-                                                <p>Blue wins</p>
+                                                <p className="result">Blue wins</p>
                                             </div>
                                         )
                                     } else
                                         if (this.state.squares[0] === "red" && this.state.squares[1] === "red" && this.state.squares[2] === "red") {
                                             return (
                                                 <div>
-                                                    <p>Red wins</p>
+                                                    <p className="result">Red wins</p>
                                                 </div>
                                             )
                                         } else
                                             if (this.state.squares[3] === "red" && this.state.squares[4] === "red" && this.state.squares[5] === "red") {
                                                 return (
                                                     <div>
-                                                        <p>Red wins</p>
+                                                        <p className="result">Red wins</p>
                                                     </div>
                                                 )
                                             } else
                                                 if (this.state.squares[6] === "red" && this.state.squares[7] === "red" && this.state.squares[8] === "red") {
                                                     return (
                                                         <div>
-                                                            <p>Red wins</p>
+                                                            <p className="result">Red wins</p>
                                                         </div>
                                                     )
                                                 } else
                                                     if (this.state.squares[0] === "red" && this.state.squares[3] === "red" && this.state.squares[6] === "red") {
                                                         return (
                                                             <div>
-                                                                <p>Red wins</p>
+                                                                <p className="result">Red wins</p>
                                                             </div>
                                                         )
                                                     } else
                                                         if (this.state.squares[1] === "red" && this.state.squares[4] === "red" && this.state.squares[7] === "red") {
                                                             return (
                                                                 <div>
-                                                                    <p>Red wins</p>
+                                                                    <p className="result">Red wins</p>
                                                                 </div>
                                                             )
                                                         } else
                                                             if (this.state.squares[2] === "red" && this.state.squares[5] === "red" && this.state.squares[8] === "red") {
                                                                 return (
                                                                     <div>
-                                                                        <p>Red wins</p>
+                                                                        <p className="result">Red wins</p>
                                                                     </div>
                                                                 )
                                                             } else
                                                                 if (this.state.squares[0] === "red" && this.state.squares[4] === "red" && this.state.squares[8] === "red") {
                                                                     return (
                                                                         <div>
-                                                                            <p>Red wins</p>
+                                                                            <p className="result">Red wins</p>
                                                                         </div>
                                                                     )
                                                                 } else
                                                                     if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red") {
                                                                         return (
                                                                             <div>
-                                                                                <p>Red wins</p>
+                                                                                <p className="result">Red wins</p>
                                                                             </div>
                                                                         )
                                                                     } else if (this.state.turn === 9) {
                                                                         return (
                                                                             <div>
-                                                                                <p>Draw</p>
+                                                                                <p className="result">Draw</p>
                                                                             </div>
                                                                         )
                                                                     }

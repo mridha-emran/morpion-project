@@ -95,75 +95,35 @@ export default class Game extends React.Component {
         }
     }
 
-    victoryConditions = () => {
-        if (this.state.squares[0] === "blue" && this.state.squares[1] === "blue" && this.state.squares[2] === "blue") {
-            let winner = "blue"
-            this.gameOver(winner)
-        } else
-            if (this.state.squares[3] === "blue" && this.state.squares[4] === "blue" && this.state.squares[5] === "blue") {
+    victoryConditions = (squares) => {
+        const lines = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+    
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
+            if (this.state.squares[a] === "blue" && this.state.squares[b] === "blue" && this.state.squares[c] === "blue") {
                 let winner = "blue"
                 this.gameOver(winner)
-            } else
-                if (this.state.squares[6] === "blue" && this.state.squares[7] === "blue" && this.state.squares[8] === "blue") {
-                    let winner = "blue"
-                    this.gameOver(winner)
-                } else
-                    if (this.state.squares[0] === "blue" && this.state.squares[3] === "blue" && this.state.squares[6] === "blue") {
-                        let winner = "blue"
-                        this.gameOver(winner)
-                    } else
-                        if (this.state.squares[1] === "blue" && this.state.squares[4] === "blue" && this.state.squares[7] === "blue") {
-                            let winner = "blue"
-                            this.gameOver(winner)
-                        } else
-                            if (this.state.squares[2] === "blue" && this.state.squares[5] === "blue" && this.state.squares[8] === "blue") {
-                                let winner = "blue"
-                                this.gameOver(winner)
-                            } else
-                                if (this.state.squares[0] === "blue" && this.state.squares[4] === "blue" && this.state.squares[8] === "blue") {
-                                    let winner = "blue"
-                                    this.gameOver(winner)
-                                } else
-                                    if (this.state.squares[2] === "blue" && this.state.squares[4] === "blue" && this.state.squares[6] === "blue") {
-                                        let winner = "blue"
-                                        this.gameOver(winner)
-                                    } else
-                                        if (this.state.squares[0] === "red" && this.state.squares[1] === "red" && this.state.squares[2] === "red") {
-                                            let winner = "red"
-                                            this.gameOver(winner)
-                                        } else
-                                            if (this.state.squares[3] === "red" && this.state.squares[4] === "red" && this.state.squares[5] === "red") {
-                                                let winner = "red"
-                                                this.gameOver(winner)
-                                            } else
-                                                if (this.state.squares[6] === "red" && this.state.squares[7] === "red" && this.state.squares[8] === "red") {
-                                                    let winner = "red"
-                                                    this.gameOver(winner)
-                                                } else
-                                                    if (this.state.squares[0] === "red" && this.state.squares[3] === "red" && this.state.squares[6] === "red") {
-                                                        let winner = "red"
-                                                        this.gameOver(winner)
-                                                    } else
-                                                        if (this.state.squares[1] === "red" && this.state.squares[4] === "red" && this.state.squares[7] === "red") {
-                                                            let winner = "red"
-                                                            this.gameOver(winner)
-                                                        } else
-                                                            if (this.state.squares[2] === "red" && this.state.squares[5] === "red" && this.state.squares[8] === "red") {
-                                                                let winner = "red"
-                                                                this.gameOver(winner)
-                                                            } else
-                                                                if (this.state.squares[0] === "red" && this.state.squares[4] === "red" && this.state.squares[8] === "red") {
-                                                                    let winner = "red"
-                                                                    this.gameOver(winner)
-                                                                } else
-                                                                    if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red") {
-                                                                        let winner = "red"
-                                                                        this.gameOver(winner)
-                                                                    } else if (this.state.turn === 9) {
-                                                                        let winner = "draw"
-                                                                        this.gameOver(winner)
-                                                                    }
+            }
+            
+             else if (this.state.squares[a] === "red" && this.state.squares[b] === "red" && this.state.squares[c] === "red") {
+                let winner = "red"
+                this.gameOver(winner)
+            }
+            
+        }
+    
+    
     }
+
     renderShowPlayerTurn() {
         if (this.state.player === "red") {
             return (
@@ -180,124 +140,42 @@ export default class Game extends React.Component {
         }
     }
     renderVictoryText() {
-        if (this.state.squares[0] === "blue" && this.state.squares[1] === "blue" && this.state.squares[2] === "blue") {
-            return (
-                <div>
-                    <p className="result">Blue wins</p>
-                </div>
-            )
-        } else
-            if (this.state.squares[3] === "blue" && this.state.squares[4] === "blue" && this.state.squares[5] === "blue") {
+         const lines = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+    
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
+            if (this.state.squares[a] === "blue" && this.state.squares[b] === "blue" && this.state.squares[c] === "blue") {
                 return (
                     <div>
                         <p className="result">Blue wins</p>
                     </div>
                 )
-            } else
-                if (this.state.squares[6] === "blue" && this.state.squares[7] === "blue" && this.state.squares[8] === "blue") {
-                    return (
-                        <div>
-                            <p className="result">Blue wins</p>
-                        </div>
-                    )
-                } else
-                    if (this.state.squares[0] === "blue" && this.state.squares[3] === "blue" && this.state.squares[6] === "blue") {
-                        return (
-                            <div>
-                                <p className="result">Blue wins</p>
-                            </div>
-                        )
-                    } else
-                        if (this.state.squares[1] === "blue" && this.state.squares[4] === "blue" && this.state.squares[7] === "blue") {
-                            return (
-                                <div>
-                                    <p className="result">Blue wins</p>
-                                </div>
-                            )
-                        } else
-                            if (this.state.squares[2] === "blue" && this.state.squares[5] === "blue" && this.state.squares[8] === "blue") {
-                                return (
-                                    <div>
-                                        <p className="result">Blue wins</p>
-                                    </div>
-                                )
-                            } else
-                                if (this.state.squares[0] === "blue" && this.state.squares[4] === "blue" && this.state.squares[8] === "blue") {
-                                    return (
-                                        <div>
-                                            <p className="result">Blue wins</p>
-                                        </div>
-                                    )
-                                } else
-                                    if (this.state.squares[2] === "blue" && this.state.squares[4] === "blue" && this.state.squares[6] === "blue") {
-                                        return (
-                                            <div>
-                                                <p className="result">Blue wins</p>
-                                            </div>
-                                        )
-                                    } else
-                                        if (this.state.squares[0] === "red" && this.state.squares[1] === "red" && this.state.squares[2] === "red") {
-                                            return (
-                                                <div>
-                                                    <p className="result">Red wins</p>
-                                                </div>
-                                            )
-                                        } else
-                                            if (this.state.squares[3] === "red" && this.state.squares[4] === "red" && this.state.squares[5] === "red") {
-                                                return (
-                                                    <div>
-                                                        <p className="result">Red wins</p>
-                                                    </div>
-                                                )
-                                            } else
-                                                if (this.state.squares[6] === "red" && this.state.squares[7] === "red" && this.state.squares[8] === "red") {
-                                                    return (
-                                                        <div>
-                                                            <p className="result">Red wins</p>
-                                                        </div>
-                                                    )
-                                                } else
-                                                    if (this.state.squares[0] === "red" && this.state.squares[3] === "red" && this.state.squares[6] === "red") {
-                                                        return (
-                                                            <div>
-                                                                <p className="result">Red wins</p>
-                                                            </div>
-                                                        )
-                                                    } else
-                                                        if (this.state.squares[1] === "red" && this.state.squares[4] === "red" && this.state.squares[7] === "red") {
-                                                            return (
-                                                                <div>
-                                                                    <p className="result">Red wins</p>
-                                                                </div>
-                                                            )
-                                                        } else
-                                                            if (this.state.squares[2] === "red" && this.state.squares[5] === "red" && this.state.squares[8] === "red") {
-                                                                return (
-                                                                    <div>
-                                                                        <p className="result">Red wins</p>
-                                                                    </div>
-                                                                )
-                                                            } else
-                                                                if (this.state.squares[0] === "red" && this.state.squares[4] === "red" && this.state.squares[8] === "red") {
-                                                                    return (
-                                                                        <div>
-                                                                            <p className="result">Red wins</p>
-                                                                        </div>
-                                                                    )
-                                                                } else
-                                                                    if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red") {
-                                                                        return (
-                                                                            <div>
-                                                                                <p className="result">Red wins</p>
-                                                                            </div>
-                                                                        )
-                                                                    } else if (this.state.turn === 9) {
-                                                                        return (
-                                                                            <div>
-                                                                                <p className="result">Draw</p>
-                                                                            </div>
-                                                                        )
-                                                                    }
+            }
+            
+             else if (this.state.squares[a] === "red" && this.state.squares[b] === "red" && this.state.squares[c] === "red") {
+                return (
+                    <div>
+                        <p className="result">Red wins</p>
+                    </div>
+                )
+            }
+            else if (this.state.turn === 9) {
+                return (
+                    <div>
+                        <p className="result">Draw</p>
+                    </div>
+                )}
+        }
+       
     }
 
     render() {
